@@ -844,43 +844,41 @@ body {
     }
 
     /* AJUSTAR ESTADO WELCOME NO MOBILE */
- /* WRAPPER do input e botão no primeiro chat */
+ /* ENVOLVE O INPUT + AVIÃO DENTRO DE UM CONTAINER */
 .chatbot-welcome-state .chatbot-input-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 15px;
-  background: transparent;
-  border-radius: 30px;
-  overflow: visible;
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
 }
 
-/* INPUT do primeiro chat */
+/* ESTILO DO INPUT */
 .chatbot-welcome-state .chatbot-main-input {
-  flex: 1;
-  padding: 14px 18px !important;
-  font-size: 1rem !important;
-  border-radius: 25px !important;
+  width: 100%;
+  padding: 14px 55px 14px 50px; /* espaço pra ícones */
+  font-size: 1rem;
+  border-radius: 25px;
   border: none;
   outline: none;
-  background: transparent;
+  background: linear-gradient(to right, #13132a, #1f1f3a);
   color: white;
 }
 
-/* BOTÃO AVIÃO do primeiro chat */
+/* BOTÃO AVIÃO DENTRO DO INPUT */
 .chatbot-welcome-state .chatbot-send-button {
-  width: 48px !important;
-  height: 48px !important;
-  font-size: 1.1rem !important;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 0;
-  border-radius: 50%;
-  background: transparent;
-  border: none;
-  color: white;
+  padding: 0;
 }
 
 
