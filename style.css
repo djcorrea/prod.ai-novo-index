@@ -806,6 +806,7 @@ body {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
+
 /* ============ RESPONSIVIDADE MOBILE - APENAS PARA TELAS ≤ 767px ============ */
 @media (max-width: 767px) {
 
@@ -836,9 +837,9 @@ body {
         width: calc(100vw - 30px) !important;
         max-width: 400px !important;
         min-width: auto !important;
-        height: 65vh !important;
-        max-height: 65vh !important;
-        min-height: 50vh !important;
+        height: 60vh !important; /* aumentado */
+        max-height: 60vh !important; /* aumentado */
+        min-height: 50vh !important; /* ajustado */
         margin-bottom: 0;
     }
 
@@ -880,9 +881,8 @@ body {
 
     /* AJUSTAR INPUT FIELD NO MOBILE */
     .chatbot-main-input {
-        padding: 14px 18px !important;
-        font-size: 1rem !important;
-        border-radius: 25px !important;
+        padding: 12px 16px; /* diminuído */
+        font-size: 0.95rem;
     }
 
     /* AJUSTAR MIC ICON NO MOBILE */
@@ -892,13 +892,16 @@ body {
     }
 
     /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
-    .chatbot-send-button,
+    .chatbot-send-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+
     .chatbot-active-send-btn {
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 1.1rem !important;
-        flex-shrink: 0;
-        margin-left: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
     }
 
     /* REPOSICIONAR BOTÕES DE AÇÃO PARA MOBILE - ABAIXO DO CHAT */
@@ -917,7 +920,7 @@ body {
         z-index: 1001;
         opacity: 1;
         animation: none;
-        margin-top: 10px;
+        margin-top: 10px; /* menor espaçamento */
     }
 
     /* AJUSTAR BOTÕES INDIVIDUAIS NO MOBILE */
@@ -1008,6 +1011,12 @@ body {
     /* AJUSTAR INPUT ATIVO NO MOBILE */
     .chatbot-input-area {
         padding: 15px 20px;
+    }
+
+    .chatbot-active-input {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        border-radius: 22px;
     }
 
     /* AJUSTAR INDICADOR DE DIGITAÇÃO NO MOBILE */
