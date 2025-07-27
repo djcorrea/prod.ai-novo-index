@@ -386,6 +386,9 @@ body {
     margin-top: auto;
 }
 
+/* ============ CORREÇÃO DO BOTÃO DE ENVIAR NO CHAT INICIAL ============ */
+
+/* Ajustar o input field do chat inicial para usar gap como no chat ativo */
 .chatbot-input-field {
     position: relative;
     display: flex;
@@ -394,12 +397,14 @@ body {
         rgba(0, 150, 255, 0.1), 
         rgba(138, 43, 226, 0.1)
     );
+     gap: 8px; /* AJUSTADO: gap menor no mobile */
+        padding: 0.6px 8px 0.6px 0.6px; /* AJUSTADO: padding para mobile */
     border: 2px solid rgba(0, 150, 255, 0.3);
     border-radius: 50px;
-    padding: 0.6px;
-    /* OTIMIZADO: transitions específicas */
+    padding: 0.6px 12px 0.6px 0.6px; /* AJUSTADO: padding direito para compensar o gap */
     transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
+
 
 .chatbot-input-field:focus-within {
     border-color: rgba(0, 150, 255, 0.6);
@@ -444,22 +449,21 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* OTIMIZADO: apenas transform e box-shadow */
+    border-radius: 50%;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .chatbot-send-button {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    font-size: 1.3rem;
-    box-shadow: 0 4px 18px rgba(0, 150, 255, 0.4);
+    width: 50px; /* AJUSTADO: mesmo tamanho do botão ativo */
+    height: 50px; /* AJUSTADO: mesmo tamanho do botão ativo */
+    font-size: 1.1rem; /* AJUSTADO: mesmo tamanho da fonte do botão ativo */
+    box-shadow: 0 4px 15px rgba(0, 150, 255, 0.4); /* AJUSTADO: mesma sombra do botão ativo */
+    flex-shrink: 0; /* ADICIONADO: impede que o botão encolha */
 }
 
 .chatbot-active-send-btn {
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     font-size: 1.1rem;
     box-shadow: 0 4px 15px rgba(0, 150, 255, 0.4);
 }
@@ -899,13 +903,13 @@ body {
     }
 
    /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
-.chatbot-send-button {
-    width: 48px; /* Corrigido o "44x" para "48px" e aumentado ligeiramente */
-    height: 44px;
-    font-size: 1rem;
-    margin-left: 8px; /* Aproxima o botão do input */
-    border-radius: 12px; /* Adiciona bordas arredondadas para combinar com o design */
-}
+  .chatbot-send-button {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+        margin-left: 0; /* REMOVIDO: margin-left não é mais necessário */
+    }
+
 
     .chatbot-active-send-btn {
         width: 40px;
