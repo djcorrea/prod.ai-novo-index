@@ -844,11 +844,18 @@ body {
     }
 
     /* AJUSTAR ESTADO WELCOME NO MOBILE */
-    .chatbot-welcome-state {
-        padding: 30px 25px;
-        gap: 20px;
-        justify-content: center;
-        min-height: auto;
+   /* Forçar tamanho correto do botão no primeiro chat */
+.chatbot-welcome-state .chatbot-send-button {
+  width: 48px !important;
+  height: 48px !important;
+  font-size: 1.1rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  border-radius: 50%;
+}
+
     }
 
     /* AJUSTAR ROBÔ PRINCIPAL NO MOBILE */
@@ -876,7 +883,7 @@ body {
 
     /* AJUSTAR INPUT SECTION NO MOBILE */
     .chatbot-input-section {
-        margin-top: 5px;
+        margin-top: 15px;
     }
 
     /* AJUSTAR INPUT FIELD NO MOBILE */
