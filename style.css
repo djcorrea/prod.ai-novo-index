@@ -386,9 +386,6 @@ body {
     margin-top: auto;
 }
 
-/* ============ CORREÇÃO DO BOTÃO DE ENVIAR NO CHAT INICIAL ============ */
-
-/* Ajustar o input field do chat inicial para usar gap como no chat ativo */
 .chatbot-input-field {
     position: relative;
     display: flex;
@@ -397,14 +394,12 @@ body {
         rgba(0, 150, 255, 0.1), 
         rgba(138, 43, 226, 0.1)
     );
-     gap: 8px; /* AJUSTADO: gap menor no mobile */
-        padding: 0.6px 8px 0.6px 0.6px; /* AJUSTADO: padding para mobile */
     border: 2px solid rgba(0, 150, 255, 0.3);
     border-radius: 50px;
-    padding: 0.6px 12px 0.6px 0.6px; /* AJUSTADO: padding direito para compensar o gap */
+    padding: 0.6px;
+    /* OTIMIZADO: transitions específicas */
     transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
-
 
 .chatbot-input-field:focus-within {
     border-color: rgba(0, 150, 255, 0.6);
@@ -449,29 +444,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    /* OTIMIZADO: apenas transform e box-shadow */
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .chatbot-send-button {
-     position: relative;
-    transform-origin: center;
-    width: 50px; /* AJUSTADO: mesmo tamanho do botão ativo */
-    height: 50px; /* AJUSTADO: mesmo tamanho do botão ativo */
-    font-size: 1.1rem; /* AJUSTADO: mesmo tamanho da fonte do botão ativo */
-    box-shadow: 0 4px 15px rgba(0, 150, 255, 0.4); /* AJUSTADO: mesma sombra do botão ativo */
-    flex-shrink: 0; /* ADICIONADO: impede que o botão encolha */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 18px rgba(0, 150, 255, 0.4);
 }
 
 .chatbot-active-send-btn {
     width: 50px;
     height: 50px;
+    border-radius: 50%;
     font-size: 1.1rem;
     box-shadow: 0 4px 15px rgba(0, 150, 255, 0.4);
 }
 
 .chatbot-send-button:hover, .chatbot-active-send-btn:hover {
-   transform: scale(1.05);
+    transform: scale(1.1);
     box-shadow: 0 6px 25px rgba(0, 150, 255, 0.6);
 }
 
@@ -816,13 +810,6 @@ body {
 /* ============ RESPONSIVIDADE MOBILE - APENAS PARA TELAS ≤ 767px ============ */
 @media (max-width: 767px) {
 
-
-    /* Hover effect menor no mobile */
-.chatbot-send-button:hover,
-.chatbot-active-send-btn:hover {
-    transform: scale(1.02);
-}
-
     /* OCULTAR ELEMENTOS DO CENÁRIO NO MOBILE */
     .robo,
     .mesa,
@@ -901,7 +888,7 @@ body {
 
     /* AJUSTAR INPUT FIELD NO MOBILE */
     .chatbot-main-input {
-        padding: 2px 6px; /* diminuído */
+        padding: 12px 16px; /* diminuído */
         font-size: 0.95rem;
     }
 
@@ -911,14 +898,12 @@ body {
         font-size: 1.2rem;
     }
 
-   /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
-  .chatbot-send-button {
-        width: 48px;
-        height: 48px;
-        font-size: 1.1rem;
-        margin-left: 0; /* REMOVIDO: margin-left não é mais necessário */
+    /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
+    .chatbot-send-button {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
     }
-
 
     .chatbot-active-send-btn {
         width: 40px;
@@ -1058,4 +1043,4 @@ body {
     .chatbot-active-send-btn:hover {
         transform: scale(1.05);
     }
-
+}
