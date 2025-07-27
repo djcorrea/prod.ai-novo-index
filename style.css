@@ -889,7 +889,7 @@ body {
     /* AJUSTAR INPUT FIELD NO MOBILE */
     .chatbot-main-input {
         padding: 2px 6px; /* diminuído */
-        font-size: 2rem;
+        font-size: 0.95rem;
     }
 
     /* AJUSTAR MIC ICON NO MOBILE */
@@ -900,8 +900,8 @@ body {
 
     /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
     .chatbot-send-button {
-        width: 44px;
-        height: 44px;
+        width: 34px;
+        height: 34px;
         font-size: 1rem;
     }
 
