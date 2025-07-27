@@ -816,6 +816,13 @@ body {
 /* ============ RESPONSIVIDADE MOBILE - APENAS PARA TELAS ≤ 767px ============ */
 @media (max-width: 767px) {
 
+
+    /* Hover effect menor no mobile */
+.chatbot-send-button:hover,
+.chatbot-active-send-btn:hover {
+    transform: scale(1.02);
+}
+
     /* OCULTAR ELEMENTOS DO CENÁRIO NO MOBILE */
     .robo,
     .mesa,
