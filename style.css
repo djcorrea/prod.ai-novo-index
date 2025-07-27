@@ -806,7 +806,7 @@ body {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* ============ RESPONSIVIDADE MOBILE - APENAS PARA TELAS ≤ 767px ============ */
+/* ============ RESPONSIVIDADE MOBILE ============ */
 @media (max-width: 767px) {
     
     /* OCULTAR ELEMENTOS DO CENÁRIO NO MOBILE */
@@ -827,13 +827,13 @@ body {
         overflow-x: hidden;
     }
     
-    /* AJUSTAR CONTAINER DO CHATBOT PARA MOBILE - SOBE E AUMENTA ALTURA */
+    /* AJUSTAR CHAT PARA MOBILE - SUBIR E AUMENTAR ALTURA */
     .chatbot-container {
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -60%); /* Sobe um pouco mais */
-        margin-top: -40px; /* Margem negativa para subir */
+        transform: translate(-50%, -50%);
+        margin-top: -20px; /* Sobe o chat */
         width: calc(100vw - 30px) !important;
         max-width: 420px !important;
         min-width: auto !important;
@@ -842,113 +842,105 @@ body {
         min-height: auto !important;
     }
     
-    /* AJUSTAR ESTADO WELCOME NO MOBILE */
+    /* AJUSTAR ELEMENTOS INTERNOS DO CHAT */
     .chatbot-welcome-state {
-        padding: 30px 25px;
-        gap: 20px;
+        padding: 25px 20px;
+        gap: 15px;
         justify-content: center;
-        min-height: auto;
     }
     
-    /* AJUSTAR ROBÔ PRINCIPAL NO MOBILE */
     .chatbot-main-robot {
-        width: 180px;
-        height: 130px;
-        top: 20px;
+        width: 160px;
+        height: 120px;
+        top: 15px;
     }
     
-    /* AJUSTAR BRANDING NO MOBILE */
     .chatbot-branding {
-        margin: 15px 0;
+        margin: 10px 0;
     }
     
-    /* AJUSTAR TÍTULO NO MOBILE */
     .chatbot-main-title {
-        font-size: 2.2rem;
-        margin-bottom: 8px;
+        font-size: 2rem;
+        margin-bottom: 5px;
     }
     
-    /* AJUSTAR SUBTÍTULO NO MOBILE */
     .chatbot-main-subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
-    /* AJUSTAR INPUT SECTION NO MOBILE - GARANTIR QUE CONTINUE VISÍVEL */
+    /* GARANTIR QUE INPUT E BOTÃO DE ENVIAR CONTINUEM VISÍVEIS */
     .chatbot-input-section {
-        margin-top: 15px;
-        display: block !important; /* Força a exibição */
+        margin-top: 10px;
+        display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
     
-    /* AJUSTAR INPUT FIELD NO MOBILE - GARANTIR QUE CONTINUE FUNCIONANDO */
     .chatbot-input-field {
-        display: flex !important; /* Força a exibição */
+        display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
     
     .chatbot-main-input {
-        padding: 16px 20px;
-        font-size: 1rem;
-        display: block !important; /* Garante que o input apareça */
+        padding: 14px 18px;
+        font-size: 0.95rem;
+        display: block !important;
         visibility: visible !important;
     }
     
-    /* AJUSTAR MIC ICON NO MOBILE */
     .chatbot-mic-icon {
-        margin-left: 20px;
-        font-size: 1.2rem;
-        display: block !important; /* Garante que o ícone apareça */
+        margin-left: 18px;
+        font-size: 1.1rem;
+        display: block !important;
         visibility: visible !important;
     }
     
-    /* AJUSTAR BOTÕES DE ENVIO NO MOBILE - GARANTIR VISIBILIDADE */
     .chatbot-send-button {
-        width: 48px;
-        height: 48px;
-        font-size: 1.1rem;
-        display: flex !important; /* Força a exibição */
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+        display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
     
     .chatbot-active-send-btn {
-        width: 44px;
-        height: 44px;
-        font-size: 1rem;
-        display: flex !important; /* Força a exibição */
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+        display: flex !important;
         visibility: visible !important;
         opacity: 1 !important;
     }
     
-    /* REPOSICIONAR BOTÕES DE AÇÃO PARA MOBILE - ABAIXO DO CHAT COM ESPAÇAMENTO */
+    /* POSICIONAR BOTÕES ABAIXO DO CHAT COM ESPAÇAMENTO */
     .chatbot-action-buttons {
         position: fixed;
-        bottom: 15px;
+        bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
         right: auto;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 8px;
         width: calc(100vw - 30px);
         max-width: 420px;
         z-index: 1001;
         opacity: 1;
         animation: none;
-        margin-top: 20px; /* Espaçamento do chat */
+        margin-top: 20px; /* Espaçamento superior de 20px */
     }
     
     /* AJUSTAR BOTÕES INDIVIDUAIS NO MOBILE */
     .chatbot-action-btn {
-        min-width: 120px;
-        max-width: 135px;
+        min-width: 110px;
+        max-width: 130px;
         flex: 1;
-        padding: 12px 16px;
-        font-size: 0.8rem;
-        border-radius: 20px;
+        padding: 10px 14px;
+        font-size: 0.75rem;
+        border-radius: 18px;
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
@@ -956,10 +948,10 @@ body {
         opacity: 1;
         animation: none;
         margin: 0;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(8px);
     }
     
-    /* ORGANIZAR BOTÕES EM LINHA ÚNICA SE COUBER */
+    /* ORGANIZAR BOTÕES EM LINHA ÚNICA OU DUAS LINHAS */
     .chatbot-action-btn:nth-child(1),
     .chatbot-action-btn:nth-child(2),
     .chatbot-action-btn:nth-child(3) {
@@ -967,68 +959,64 @@ body {
         opacity: 1;
     }
     
-    /* SE NÃO COUBER, O TERCEIRO BOTÃO VAI PARA LINHA DE BAIXO */
+    /* SE NÃO COUBER, TERCEIRO BOTÃO VAI PARA SEGUNDA LINHA */
     .chatbot-action-btn:nth-child(3) {
         width: 100%;
-        max-width: 280px;
-        margin-top: 8px;
+        max-width: 250px;
+        margin-top: 6px;
     }
     
-    /* AJUSTAR ESTADO ATIVO DO CHATBOT NO MOBILE */
+    /* AJUSTAR ESTADO ATIVO DO CHAT */
     .chatbot-active-state {
         height: 100%;
     }
     
-    /* AJUSTAR HEADER DO CHATBOT NO MOBILE */
     .chatbot-header-bar {
-        padding: 20px 25px;
+        padding: 18px 20px;
     }
     
     .chatbot-header-name {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
     .chatbot-header-desc {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
     
-    /* AJUSTAR ÁREA DE CONVERSA NO MOBILE */
     .chatbot-conversation-area {
-        padding: 20px 25px;
+        padding: 18px 20px;
         flex: 1;
-        min-height: 250px;
-        max-height: 50vh;
+        min-height: 200px;
+        max-height: 45vh;
     }
     
-    /* AJUSTAR MENSAGENS NO MOBILE */
     .chatbot-message {
-        margin-bottom: 20px;
-        gap: 12px;
+        margin-bottom: 18px;
+        gap: 10px;
     }
     
     .chatbot-message-avatar {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
     }
     
     .chatbot-message-bubble {
-        padding: 12px 16px;
-        font-size: 0.95rem;
-        border-radius: 16px;
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        border-radius: 14px;
     }
     
     .chatbot-message-assistant .chatbot-message-bubble {
-        border-radius: 16px 16px 16px 4px;
+        border-radius: 14px 14px 14px 3px;
     }
     
     .chatbot-message-user .chatbot-message-bubble {
-        border-radius: 16px 16px 4px 16px;
+        border-radius: 14px 14px 3px 14px;
     }
     
-    /* AJUSTAR INPUT ATIVO NO MOBILE - GARANTIR FUNCIONAMENTO */
     .chatbot-input-area {
-        padding: 20px 25px;
+        padding: 18px 20px;
         display: block !important;
         visibility: visible !important;
     }
@@ -1039,20 +1027,19 @@ body {
     }
     
     .chatbot-active-input {
-        padding: 14px 18px;
-        font-size: 0.95rem;
-        border-radius: 25px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        border-radius: 22px;
         display: block !important;
         visibility: visible !important;
     }
     
-    /* AJUSTAR INDICADOR DE DIGITAÇÃO NO MOBILE */
     .chatbot-typing-indicator {
-        padding-left: 15px;
-        margin-bottom: 15px;
+        padding-left: 12px;
+        margin-bottom: 12px;
     }
     
-    /* AJUSTAR HOVER EFFECTS PARA TOUCH NO MOBILE */
+    /* AJUSTAR HOVER EFFECTS PARA TOUCH */
     .chatbot-action-btn:hover {
         transform: scale(1.02);
         background: rgba(0, 150, 255, 0.12);
