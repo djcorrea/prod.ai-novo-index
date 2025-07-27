@@ -1009,7 +1009,7 @@ body {
     
     /* AJUSTAR INPUT ATIVO NO MOBILE */
     .chatbot-input-area {
-        padding: 20px 25px;
+        padding: 40px 25px;
     }
     
     .chatbot-active-input {
