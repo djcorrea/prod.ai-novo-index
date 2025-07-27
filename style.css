@@ -900,6 +900,7 @@ body {
 
    /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
 .chatbot-send-button {
+    left: 20px;
     width: 50px; /* Reduzir de 56px para 50px - igual ao ativo */
     height: 50px; /* Reduzir de 56px para 50px - igual ao ativo */  
     border-radius: 50%;
