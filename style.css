@@ -938,7 +938,7 @@ body {
     /* REPOSICIONAR BOTÕES DE AÇÃO PARA MOBILE - ABAIXO DO CHAT */
     .chatbot-action-buttons {
         position: fixed;
-        bottom: 10px;
+        bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
         right: auto;
