@@ -881,7 +881,7 @@ body {
 
     /* AJUSTAR INPUT FIELD NO MOBILE */
     .chatbot-main-input {
-        padding: 12px 12px; /* diminuído */
+        padding: 8px 16px; /* diminuído */
         font-size: 0.95rem;
     }
 
