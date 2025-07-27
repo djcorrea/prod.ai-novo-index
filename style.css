@@ -862,8 +862,9 @@ body {
         margin-top: 15px;
         display: flex !important;
         align-items: center !important;
-        gap: 10px !important;
+        gap: 5px !important;
         width: 100% !important;
+        padding: 0 5px !important;
     }
 
     /* GARANTIR QUE O INPUT OCUPE O ESPAÇO DISPONÍVEL */
@@ -876,20 +877,21 @@ body {
 
     /* AJUSTAR INPUT ATIVO PARA MANTER LAYOUT FLEXÍVEL */
     .chatbot-input-area {
-        padding: 15px 20px;
+        padding: 10px 15px;
         display: flex !important;
         align-items: center !important;
-        gap: 10px !important;
+        gap: 5px !important;
         width: 100% !important;
     }
 
     .chatbot-active-input {
-        padding: 10px 12px;
-        font-size: 0.85rem;
-        border-radius: 22px;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        border-radius: 18px;
         flex: 1 !important; /* Ocupa o espaço disponível */
         min-width: 0 !important; /* Permite que o input encolha se necessário */
-        max-width: calc(100% - 55px) !important; /* Reserva espaço para o botão */
+        max-width: calc(100% - 45px) !important; /* Reserva espaço para o botão */
+        width: auto !important;
     }
 
     /* AJUSTAR ROBÔ PRINCIPAL NO MOBILE */
@@ -924,17 +926,17 @@ body {
 
     /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
     .chatbot-send-button {
-        width: 40px;
-        height: 40px;
-        font-size: 0.9rem;
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
         flex-shrink: 0; /* Impede que o botão encolha */
         margin-left: 0; /* Remove margem conflitante */
     }
 
     .chatbot-active-send-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 0.85rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
         flex-shrink: 0; /* Impede que o botão encolha */
         margin-left: 0; /* Remove margem conflitante */
     }
