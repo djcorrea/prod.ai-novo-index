@@ -830,11 +830,11 @@ body {
     /* AJUSTAR CONTAINER DO CHATBOT PARA MOBILE */
     .chatbot-container {
         position: fixed;
-        top: 40%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: calc(100vw - 30px) !important;
-        max-width: 400px !important;
+        max-width: 700px !important;
         min-width: auto !important;
         height: auto !important;
         max-height: 75vh !important;
