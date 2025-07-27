@@ -454,6 +454,8 @@ body {
 }
 
 .chatbot-send-button {
+     position: relative;
+    transform-origin: center;
     width: 50px; /* AJUSTADO: mesmo tamanho do botão ativo */
     height: 50px; /* AJUSTADO: mesmo tamanho do botão ativo */
     font-size: 1.1rem; /* AJUSTADO: mesmo tamanho da fonte do botão ativo */
