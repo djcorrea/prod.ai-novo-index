@@ -898,12 +898,14 @@ body {
         font-size: 1.2rem;
     }
 
-    /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
-    .chatbot-send-button {
-        width: 44x;
-        height: 44px;
-        font-size: 1rem;
-    }
+   /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
+.chatbot-send-button {
+    width: 48px; /* Corrigido o "44x" para "48px" e aumentado ligeiramente */
+    height: 44px;
+    font-size: 1rem;
+    margin-left: 8px; /* Aproxima o botão do input */
+    border-radius: 12px; /* Adiciona bordas arredondadas para combinar com o design */
+}
 
     .chatbot-active-send-btn {
         width: 40px;
