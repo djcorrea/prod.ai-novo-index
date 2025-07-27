@@ -2,15 +2,12 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Cenário Futurista</title>
     <link rel="stylesheet" href="style.css">
     
-    <!-- Font Awesome para ícones do chatbot -->
+    <!-- Fontes e ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Fontes futuristas para o chatbot -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Bibliotecas para efeitos visuais -->
@@ -19,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
-    <!-- ============ CÓDIGO ORIGINAL MANTIDO ============ -->
+    <!-- Cenário 3D -->
     <div class="cenario">
         <!-- Container para o fundo animado Vanta.js -->
         <div class="vanta-background" id="vanta-bg"></div>
@@ -27,34 +24,23 @@
         <!-- Plano de fundo com rede neural (mantido como fallback) -->
         <img src="fundo.jpg" alt="Fundo futurista" class="fundo" />
 
-        <!-- Robô futurista à direita -->
+        <!-- Elementos do cenário -->
         <img src="robo.png" alt="Robô futurista" class="robo" />
-        
-        <!-- Mesa base -->
         <img src="mesa.png" alt="Mesa" class="mesa" />
-
-        <!-- Torre de caixas de som à esquerda -->
         <img src="caixas.png" alt="Caixas de som principais" class="caixas" />
-
-        <!-- Notebook à esquerda -->
         <img src="notebook.png" alt="Notebook" class="notebook" />
-
-        <!-- Teclado -->
         <img src="teclado.png" alt="teclado" class="teclado" />
-        
-        
         
         <!-- Overlay de partículas extras -->
         <div class="particles-overlay"></div>
     </div>
 
-    <!-- ============ CHATBOT POSICIONADO NO MONITOR ============ -->
+    <!-- Chatbot posicionado no monitor -->
     <div class="chatbot-container" id="chatbotContainer">
         <!-- Estado Inicial (Welcome) -->
         <div class="chatbot-welcome-state" id="chatbotWelcomeState">
             <div class="chatbot-robot-wrapper">
                 <img src="robo 2.png" alt="PROD.AI Robot" class="chatbot-main-robot" id="chatbotMainRobot">
-                
             </div>
             
             <div class="chatbot-branding" id="chatbotBranding">
@@ -122,20 +108,19 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-<!-- Cole este código no final do body, ANTES da tag </body> -->
-<!-- NÃO coloque dentro da div .chatbot-welcome-state -->
-<div class="chatbot-action-buttons">
-    <button class="chatbot-action-btn" data-action="upgrade">
-        <span>Assinar versão Plus</span>
-    </button>
-    <button class="chatbot-action-btn" data-action="manage">
-        <span>Gerenciar conta</span>
-    </button>
-    <button class="chatbot-action-btn" data-action="logout">
-        <span>Sair</span>
-    </button>
-</div>
+    <!-- Botões de ação do chatbot -->
+    <div class="chatbot-action-buttons">
+        <button class="chatbot-action-btn" data-action="upgrade">
+            <span>Assinar versão Plus</span>
+        </button>
+        <button class="chatbot-action-btn" data-action="manage">
+            <span>Gerenciar conta</span>
+        </button>
+        <button class="chatbot-action-btn" data-action="logout">
+            <span>Sair</span>
+        </button>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>

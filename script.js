@@ -1,11 +1,10 @@
-// Variável para controlar se as animações estão ativas
+/* ============ VARIÁVEIS GLOBAIS ============ */
 let vantaEffect = null;
 let isDesktop = window.innerWidth > 768;
 
-// Inicializar fundo animado Vanta.js
+/* ============ INICIALIZAÇÃO DO VANTA BACKGROUND ============ */
 function initVantaBackground() {
     try {
-        // Verificar se Vanta e THREE estão disponíveis
         if (typeof VANTA !== 'undefined' && typeof THREE !== 'undefined') {
             vantaEffect = VANTA.NET({
                 el: "#vanta-bg",
@@ -16,9 +15,9 @@ function initVantaBackground() {
                 minWidth: 200.00,
                 scale: 1.00,
                 scaleMobile: 1.00,
-                color: 0x8a2be2,      // Roxo
-                backgroundColor: 0x0a0a1a, // Preto azulado
-                points: isDesktop ? 8.00 : 4.00,  // Menos pontos no mobile
+                color: 0x8a2be2,
+                backgroundColor: 0x0a0a1a,
+                points: isDesktop ? 8.00 : 4.00,
                 maxDistance: isDesktop ? 25.00 : 15.00,
                 spacing: isDesktop ? 18.00 : 25.00,
                 showDots: true
@@ -32,14 +31,12 @@ function initVantaBackground() {
     }
 }
 
-// Animações de entrada com GSAP TOTALMENTE SINCRONIZADAS
+/* ============ ANIMAÇÕES DE ENTRADA ============ */
 function initEntranceAnimations() {
     try {
         if (typeof gsap !== 'undefined') {
-            // Timeline principal SINCRONIZADA - TODOS OS ELEMENTOS JUNTOS
             const tl = gsap.timeline();
             
-            // SINCRONIZAÇÃO TOTAL: Todos os elementos animam simultaneamente
             // Animar fundo
             tl.to('.fundo', {
                 opacity: 0.3,
@@ -47,7 +44,7 @@ function initEntranceAnimations() {
                 ease: "power2.out"
             })
             
-            // TODOS OS ELEMENTOS ANIMAM JUNTOS com delays mínimos
+            // Animar todos os elementos com stagger mínimo
             .fromTo(['.mesa', '.caixas', '.notebook', '.teclado', '.robo'], {
                 y: 100,
                 opacity: 0,
@@ -58,14 +55,13 @@ function initEntranceAnimations() {
                 scale: 1,
                 duration: 0.6,
                 ease: "back.out(1.7)",
-                stagger: 0.05  // Delay mínimo de 0.05s entre elementos
+                stagger: 0.05
             }, "-=0.4");
             
-            console.log('✅ GSAP animações SINCRONIZADAS carregadas');
+            console.log('✅ GSAP animações carregadas');
         } else {
-            // Fallback: usar animações CSS sincronizadas
             document.body.classList.add('fallback-animation');
-            console.warn('⚠️ GSAP não encontrado, usando animações CSS SINCRONIZADAS de fallback');
+            console.warn('⚠️ GSAP não encontrado, usando animações CSS de fallback');
         }
     } catch (error) {
         console.warn('⚠️ Erro no GSAP:', error);
@@ -73,19 +69,19 @@ function initEntranceAnimations() {
     }
 }
 
-// Efeito parallax melhorado para desktop - MAIS RESPONSIVO
+/* ============ EFEITO PARALLAX ============ */
 function initParallaxEffect() {
-    if (!isDesktop) return; // Só ativar no desktop
+    if (!isDesktop) return;
     
     document.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1 a 1
-        const y = (e.clientY / window.innerHeight - 0.5) * 2; // -1 a 1
+        const x = (e.clientX / window.innerWidth - 0.5) * 2;
+        const y = (e.clientY / window.innerHeight - 0.5) * 2;
         
-        // Movimento sutil do robô com perspectiva - MAIS RÁPIDO
+        // Movimento do robô
         const robo = document.querySelector('.robo');
         if (robo) {
             gsap.to(robo, {
-                duration: 0.3, // Reduzido de 0.6
+                duration: 0.3,
                 rotationY: x * 3,
                 rotationX: -y * 2,
                 x: x * 15,
@@ -94,7 +90,7 @@ function initParallaxEffect() {
             });
         }
         
-        // Movimento do fundo Vanta (se existir)
+        // Controle do Vanta
         if (vantaEffect) {
             vantaEffect.setOptions({
                 mouseControls: true,
@@ -102,9 +98,9 @@ function initParallaxEffect() {
             });
         }
         
-        // Movimento sutil dos outros elementos - MAIS RÁPIDO
+        // Movimento dos outros elementos
         gsap.to('.notebook', {
-            duration: 0.4, // Reduzido de 0.8
+            duration: 0.4,
             x: x * 8,
             y: -y * 5,
             rotationY: x * 2,
@@ -112,14 +108,14 @@ function initParallaxEffect() {
         });
         
         gsap.to('.caixas', {
-            duration: 0.45, // Reduzido de 0.9
+            duration: 0.45,
             x: x * 5,
             y: -y * 3,
             ease: "power2.out"
         });
         
         gsap.to('.teclado', {
-            duration: 0.35, // Reduzido de 0.7
+            duration: 0.35,
             x: x * 6,
             y: -y * 4,
             ease: "power2.out"
@@ -127,7 +123,7 @@ function initParallaxEffect() {
     });
 }
 
-// Efeitos de hover melhorados - MAIS RÁPIDOS
+/* ============ EFEITOS DE HOVER ============ */
 function initHoverEffects() {
     const elements = [
         { selector: '.robo', scale: 1.03, glow: 40 },
@@ -137,7 +133,7 @@ function initHoverEffects() {
         { selector: '.mesa', scale: 1.01, glow: 25 }
     ];
     
-    elements.forEach(({ selector, scale, glow }) => {
+    elements.forEach(({ selector, scale }) => {
         const element = document.querySelector(selector);
         if (!element) return;
         
@@ -146,7 +142,7 @@ function initHoverEffects() {
                 gsap.to(element, {
                     scale: scale,
                     y: selector !== '.mesa' ? -8 : 0,
-                    duration: 0.2, // Reduzido de 0.4
+                    duration: 0.2,
                     ease: "back.out(1.7)"
                 });
             }
@@ -157,7 +153,7 @@ function initHoverEffects() {
                 gsap.to(element, {
                     scale: 1,
                     y: 0,
-                    duration: 0.2, // Reduzido de 0.4
+                    duration: 0.2,
                     ease: "back.out(1.7)"
                 });
             }
@@ -165,10 +161,9 @@ function initHoverEffects() {
     });
 }
 
-// Otimização para dispositivos móveis
+/* ============ OTIMIZAÇÕES MOBILE ============ */
 function optimizeForMobile() {
     if (!isDesktop) {
-        // Desabilitar efeitos pesados no mobile
         const style = document.createElement('style');
         style.textContent = `
             .robo, .notebook, .teclado, .caixas, .mesa {
@@ -184,52 +179,38 @@ function optimizeForMobile() {
     }
 }
 
-// Limpeza ao redimensionar a janela
+/* ============ REDIMENSIONAMENTO ============ */
 function handleResize() {
     const newIsDesktop = window.innerWidth > 768;
     
     if (newIsDesktop !== isDesktop) {
         isDesktop = newIsDesktop;
         
-        // Recarregar Vanta com novas configurações
         if (vantaEffect) {
             vantaEffect.destroy();
-            setTimeout(initVantaBackground, 50); // Reduzido de 100
+            setTimeout(initVantaBackground, 50);
         }
         
-        // Reapllicar otimizações
         optimizeForMobile();
     }
 }
 
-// Inicialização principal
+/* ============ INICIALIZAÇÃO PRINCIPAL ============ */
 function init() {
     console.log('🚀 Inicializando cenário futurista...');
     
-    // Detectar dispositivo e otimizar
     optimizeForMobile();
-    
-    // Inicializar fundo animado
     initVantaBackground();
-    
-    // Inicializar animações de entrada SINCRONIZADAS
     initEntranceAnimations();
-    
-    // Inicializar efeito parallax (só desktop)
     initParallaxEffect();
-    
-    // Inicializar efeitos de hover
     initHoverEffects();
     
-    // Listener para redimensionamento
     window.addEventListener('resize', handleResize);
     
-    console.log('✅ Cenário futurista carregado SINCRONIZADO!');
+    console.log('✅ Cenário futurista carregado!');
 }
 
-// === FUNÇÕES ORIGINAIS MANTIDAS ===
-
-// Criar partículas digitais (função original mantida)
+/* ============ FUNÇÕES AUXILIARES ============ */
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
     if (!particlesContainer) return;
@@ -246,7 +227,6 @@ function createParticles() {
     }
 }
 
-// Função original do chat (mantida)
 function enviarMensagem() {
     const input = document.getElementById('input');
     const mensagens = document.getElementById('mensagens');
@@ -259,28 +239,25 @@ function enviarMensagem() {
     mensagens.innerHTML += `<div><strong>Você:</strong> ${msg}</div>`;
     input.value = "";
 
-    // Simulação de resposta
     setTimeout(() => {
         mensagens.innerHTML += `<div><strong>Prod.AI:</strong> Resposta automática para: "${msg}"</div>`;
         mensagens.scrollTop = mensagens.scrollHeight;
     }, 500);
 }
 
-// Função de logout (mantida)
 function logout() {
     localStorage.clear();
     window.location.href = "login.html";
 }
 
-// Limpeza ao sair da página
+/* ============ LIMPEZA ============ */
 window.addEventListener('beforeunload', () => {
     if (vantaEffect) {
         vantaEffect.destroy();
     }
 });
 
-// ============ CHATBOT POSICIONADO NO MONITOR ============
-
+/* ============ CLASSE CHATBOT PROD.AI ============ */
 class ProdAIChatbot {
     constructor() {
         this.isActive = false;
@@ -334,10 +311,7 @@ class ProdAIChatbot {
         this.mainInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.handleFirstMessage();
         });
-        
-        this.mainInput.addEventListener('focus', () => {
-            this.animateInputFocus();
-        });
+        this.mainInput.addEventListener('focus', () => this.animateInputFocus());
         
         // Eventos do estado Ativo
         this.activeSendBtn.addEventListener('click', () => this.sendMessage());
@@ -347,9 +321,7 @@ class ProdAIChatbot {
     }
     
     waitForPageLoad() {
-        // Aguardar carregamento SINCRONIZADO - MUITO MAIS RÁPIDO
         const checkPageReady = () => {
-            // Verificar se todos os recursos estão carregados
             const images = document.querySelectorAll('img');
             let allImagesLoaded = true;
             
@@ -359,21 +331,17 @@ class ProdAIChatbot {
                 }
             });
             
-            // Verificar se as bibliotecas essenciais carregaram
             const librariesLoaded = typeof gsap !== 'undefined' && typeof VANTA !== 'undefined';
             
             if (allImagesLoaded && librariesLoaded) {
-                // SINCRONIZADO: Aguardar mínimo para animações do cenário
                 setTimeout(() => {
                     this.animateInitialAppearance();
-                }, 800); // Reduzido de 1200
+                }, 800);
             } else {
-                // Verificação mais rápida
-                setTimeout(checkPageReady, 50); // Reduzido de 100
+                setTimeout(checkPageReady, 50);
             }
         };
         
-        // Iniciar verificação após DOM carregar
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', checkPageReady);
         } else {
@@ -383,7 +351,6 @@ class ProdAIChatbot {
     
     animateInitialAppearance() {
         if (typeof gsap !== 'undefined') {
-            // Animação de entrada do chatbot SINCRONIZADA com o restante
             gsap.fromTo(this.container, 
                 { 
                     scale: 0.7, 
@@ -401,10 +368,8 @@ class ProdAIChatbot {
                 }
             );
             
-            // SINCRONIZAÇÃO: Elementos internos aparecem QUASE JUNTOS
-            const tl = gsap.timeline({ delay: 0.15 }); // Delay mínimo
+            const tl = gsap.timeline({ delay: 0.15 });
             
-            // TODOS OS ELEMENTOS DO CHATBOT JUNTOS
             tl.fromTo([this.mainRobot, this.mainTitle, this.mainSubtitle, this.inputSection], 
                 { scale: 0.5, opacity: 0, y: 30 },
                 { 
@@ -413,11 +378,10 @@ class ProdAIChatbot {
                     y: 0, 
                     duration: 0.5, 
                     ease: "back.out(1.7)",
-                    stagger: 0.05  // Delay mínimo entre elementos
+                    stagger: 0.05
                 }
             );
         } else {
-            // Fallback sem GSAP - aparecer diretamente
             this.container.style.opacity = '1';
         }
     }
@@ -464,28 +428,24 @@ class ProdAIChatbot {
         if (typeof gsap !== 'undefined') {
             const tl = gsap.timeline();
             
-            // SINCRONIZADO: Transição mais rápida e fluida
             tl.to([this.mainRobot, this.branding], {
                 opacity: 0,
                 y: -60,
                 scale: 0.8,
-                duration: 0.3, // Mais rápido
+                duration: 0.3,
                 ease: "power2.inOut"
             })
             
-            // Expandir container SINCRONIZADO
             .to(this.container, {
                 width: 850,
                 height: 750,
-                duration: 0.4, // Mais rápido
+                duration: 0.4,
                 ease: "back.out(1.7)"
-            }, "-=0.15") // Overlap maior
+            }, "-=0.15")
             
-            // Mostrar estado ativo
             .set(this.welcomeState, { display: 'none' })
             .set(this.activeState, { display: 'flex' })
             
-            // TODOS OS ELEMENTOS ATIVOS APARECEM JUNTOS
             .fromTo([this.activeState, this.headerBar, this.conversationArea, '.chatbot-input-area'], 
                 { opacity: 0, y: 20 },
                 { 
@@ -493,52 +453,46 @@ class ProdAIChatbot {
                     y: 0, 
                     duration: 0.4, 
                     ease: "power2.out",
-                    stagger: 0.05  // Delay mínimo
+                    stagger: 0.05
                 }
             );
-            
         } else {
-            // Fallback sem GSAP
             this.welcomeState.style.display = 'none';
             this.activeState.style.display = 'flex';
             this.activeState.classList.add('active');
             this.container.classList.add('expanded');
         }
         
-        // SINCRONIZADO: Primeira mensagem mais rápida
         setTimeout(() => {
             this.addMessage(firstMessage, 'user');
             this.activeInput.focus();
             
-            // Resposta da IA sincronizada
             setTimeout(() => {
                 this.showTyping();
                 setTimeout(() => {
                     this.hideTyping();
                     const response = this.getRandomResponse();
                     this.addMessage(response, 'assistant');
-                }, 800); // Mais rápido
-            }, 200); // Muito mais rápido
-        }, 800); // Reduzido drasticamente
+                }, 800);
+            }, 200);
+        }, 800);
     }
     
     sendMessage() {
         const message = this.activeInput.value.trim();
         if (!message) return;
         
-        // Adicionar mensagem do usuário
         this.addMessage(message, 'user');
         this.activeInput.value = '';
         
-        // SINCRONIZADO: Resposta da IA mais rápida
         setTimeout(() => {
             this.showTyping();
             setTimeout(() => {
                 this.hideTyping();
                 const response = this.getRandomResponse();
                 this.addMessage(response, 'assistant');
-            }, 600 + Math.random() * 400); // Mais rápido
-        }, 100); // Muito mais rápido
+            }, 600 + Math.random() * 400);
+        }, 100);
     }
     
     addMessage(text, sender) {
@@ -568,7 +522,6 @@ class ProdAIChatbot {
         this.conversationArea.appendChild(messageDiv);
         this.scrollToBottom();
         
-        // SINCRONIZADO: Animação de mensagem mais rápida
         if (typeof gsap !== 'undefined') {
             gsap.fromTo(messageDiv, 
                 { opacity: 0, y: 30, scale: 0.95 },
@@ -591,7 +544,7 @@ class ProdAIChatbot {
     scrollToBottom() {
         setTimeout(() => {
             this.conversationArea.scrollTop = this.conversationArea.scrollHeight;
-        }, 25); // Mais rápido
+        }, 25);
     }
     
     getCurrentTime() {
@@ -606,20 +559,18 @@ class ProdAIChatbot {
         return this.responses[Math.floor(Math.random() * this.responses.length)];
     }
     
-    // Método para resetar o chatbot (útil para testes)
+    // Método para resetar o chatbot
     reset() {
         this.isActive = false;
         this.messageCount = 0;
         this.mainInput.value = '';
         this.activeInput.value = '';
         
-        // Resetar estados visuais
         this.welcomeState.style.display = 'flex';
         this.activeState.style.display = 'none';
         this.activeState.classList.remove('active');
         this.container.classList.remove('expanded');
         
-        // Limpar mensagens
         const messages = this.conversationArea.querySelectorAll('.chatbot-message:not(.chatbot-message:first-child)');
         messages.forEach(msg => msg.remove());
         
@@ -627,26 +578,23 @@ class ProdAIChatbot {
     }
 }
 
-// SINCRONIZADO: Inicialização muito mais rápida
+/* ============ INICIALIZAÇÃO E BOTÕES DE AÇÃO ============ */
 window.addEventListener('load', () => {
-    // Inicializar cenário SINCRONIZADO
-    setTimeout(init, 25); // Muito mais rápido
+    setTimeout(init, 25);
     
-    // Inicializar chatbot SINCRONIZADO
     setTimeout(() => {
         window.prodAIChatbot = new ProdAIChatbot();
-        console.log('🤖 PROD.AI Chatbot SINCRONIZADO inicializado!');
-    }, 50); // Muito mais rápido
+        console.log('🤖 PROD.AI Chatbot inicializado!');
+    }, 50);
 });
 
-// ============ FUNÇÃO PARA RESET (DESENVOLVIMENTO) ============
 function resetChatbot() {
     if (window.prodAIChatbot) {
         window.prodAIChatbot.reset();
         console.log('🔄 Chatbot resetado');
     }
 }
-// ============ FUNCIONALIDADE DOS BOTÕES DE AÇÃO ============
+
 document.addEventListener('DOMContentLoaded', function() {
     const actionButtons = document.querySelectorAll('.chatbot-action-btn');
     
@@ -657,17 +605,12 @@ document.addEventListener('DOMContentLoaded', function() {
             switch(action) {
                 case 'upgrade':
                     console.log('Redirecionando para upgrade...');
-                    // window.location.href = '/upgrade';
                     break;
-                    
                 case 'manage':
                     console.log('Abrindo gerenciamento de conta...');
-                    // window.location.href = '/account';
                     break;
-                    
                 case 'logout':
                     console.log('Fazendo logout...');
-                    // window.location.href = '/logout';
                     break;
             }
         });

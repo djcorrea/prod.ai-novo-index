@@ -1,4 +1,4 @@
-/* ============ RESET E BASE - ULTRA OTIMIZADO ============ */
+/* ============ RESET E BASE ============ */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     background: #0a0a1a;
 }
 
-/* ============ CONTAINER PRINCIPAL ============ */
+/* ============ CENÁRIO PRINCIPAL ============ */
 .cenario {
     position: relative;
     width: 100vw;
@@ -20,16 +20,18 @@ body {
     background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #16213e 100%);
 }
 
-/* ============ ELEMENTOS BASE - OTIMIZADO PARA GPU ============ */
+/* ============ ELEMENTOS BASE DO CENÁRIO ============ */
 .cenario img {
     position: absolute;
     object-fit: contain;
     image-rendering: auto;
     opacity: 0;
     transform: translateY(50px) scale(0.9);
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.2s ease;
+    will-change: transform;
 }
 
-/* ============ FUNDOS E LAYERS ============ */
+/* ============ FUNDOS E BACKGROUNDS ============ */
 .vanta-background {
     position: absolute;
     top: 0;
@@ -49,32 +51,20 @@ body {
     object-fit: cover;
     opacity: 0.3;
     filter: blur(1px);
-    /* ANIMAÇÃO DE ENTRADA */
     animation: fundoEntrance 0.8s ease-out forwards;
 }
 
-/* ============ ELEMENTOS PRINCIPAIS - PERFORMANCE OTIMIZADA ============ */
-
-/* SOMBRAS ESTÁTICAS PARA MELHOR PERFORMANCE */
+/* ============ ELEMENTOS DO CENÁRIO ============ */
 .robo {
     top: 2%;
     right: -10%;
     height: auto;
     max-height: 86.1vh;
     z-index: 3;
-    /* OTIMIZADO: transition específica ao invés de 'all' */
-    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    /* OTIMIZADO: sombra estática, brilho animado via pseudo-elemento */
     filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.3));
-    animation: robotBreathingOptimized 2s ease-in-out infinite;
-    /* OTIMIZADO: apenas transform para GPU */
-    will-change: transform;
-    /* ANIMAÇÃO DE ENTRADA */
-    opacity: 0;
     animation: robotEntranceAndBreathing 1s ease-out forwards, robotBreathingOptimized 2s ease-in-out infinite 1s;
 }
 
-/* SOMBRA BASE ESTÁTICA PARA MESA */
 .mesa {
     bottom: -79%;
     left: -320px;
@@ -83,16 +73,6 @@ body {
     max-height: 1500px;
     z-index: 1;
     filter: drop-shadow(0 0 15px rgba(0, 150, 255, 0.2));
-    /* OTIMIZADO: transition apenas para propriedades que mudam */
-    transition: opacity 0.15s ease;
-}
-
-/* ELEMENTOS COM TRANSITIONS OTIMIZADAS */
-.notebook, .teclado, .caixas {
-    /* OTIMIZADO: transitions específicas ao invés de 'all' */
-    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.2s ease;
-    /* OTIMIZADO: apenas transform para GPU */
-    will-change: transform;
 }
 
 .notebook {
@@ -125,9 +105,41 @@ body {
     animation: subtleGlowOptimized 3.5s ease-in-out infinite 1s;
 }
 
-/* ============ ANIMAÇÕES ULTRA OTIMIZADAS PARA GPU ============ */
+/* ============ OVERLAY DE PARTÍCULAS ============ */
+.particles-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.08) 0%, transparent 70%);
+    animation: particleFloatOptimized 10s ease-in-out infinite;
+    will-change: transform;
+}
 
-/* ANIMAÇÕES DE ENTRADA SUAVES */
+/* ============ EFEITOS HOVER DO CENÁRIO ============ */
+.robo:hover {
+    transform: scale(1.03) rotate(1deg);
+}
+
+.notebook:hover {
+    transform: scale(1.06) translateY(-5px);
+}
+
+.teclado:hover {
+    transform: scale(1.05) translateY(-3px);
+}
+
+.mesa:hover {
+    opacity: 0.9;
+}
+
+.caixas:hover {
+    transform: scale(1.04) translateY(-8px);
+}
+/* ============ ANIMAÇÕES DO CENÁRIO ============ */
 @keyframes fundoEntrance {
     0% {
         opacity: 0;
@@ -161,7 +173,7 @@ body {
     }
 }
 
-/* OTIMIZADO: Apenas transform e opacity - sem filter custoso */
+/* OTIMIZADO: Apenas transform e opacity */
 @keyframes robotBreathingOptimized {
     0%, 100% {
         transform: scale(1);
@@ -173,7 +185,7 @@ body {
     }
 }
 
-/* OTIMIZADO: Apenas transform - sem filter/brightness custosos */
+/* OTIMIZADO: Apenas transform */
 @keyframes subtleGlowOptimized {
     0%, 100% {
         transform: scale(1);
@@ -185,7 +197,6 @@ body {
     }
 }
 
-/* OTIMIZADO: Reduzida para ser mais leve */
 @keyframes particleFloatOptimized {
     0%, 100% {
         opacity: 0.3;
@@ -208,45 +219,7 @@ body {
     }
 }
 
-/* ============ OVERLAY OTIMIZADO - 1 GRADIENTE APENAS ============ */
-.particles-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 4;
-    pointer-events: none;
-    /* OTIMIZADO: 1 gradiente ao invés de 3 */
-    background: radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.08) 0%, transparent 70%);
-    animation: particleFloatOptimized 10s ease-in-out infinite;
-    will-change: transform;
-}
-
-/* ============ EFEITOS HOVER ULTRA OTIMIZADOS ============ */
-
-/* OTIMIZADO: Apenas transform, sem filter custoso */
-.robo:hover {
-    transform: scale(1.03) rotate(1deg);
-}
-
-.notebook:hover {
-    transform: scale(1.06) translateY(-5px);
-}
-
-.teclado:hover {
-    transform: scale(1.05) translateY(-3px);
-}
-
-.mesa:hover {
-    opacity: 0.9;
-}
-
-.caixas:hover {
-    transform: scale(1.04) translateY(-8px);
-}
-
-/* ============ ANIMAÇÃO DE CARREGAMENTO SINCRONIZADA ============ */
+/* ============ ANIMAÇÕES DE CARREGAMENTO ============ */
 .fallback-animation .cenario img {
     animation: fadeInUp 0.6s ease-out forwards;
     will-change: transform, opacity;
@@ -259,7 +232,7 @@ body {
 .fallback-animation .teclado { animation-delay: 0.2s; }
 .fallback-animation .robo { animation-delay: 0.25s; }
 
-/* ============ CHATBOT - CONTAINER ULTRA OTIMIZADO ============ */
+/* ============ CHATBOT - CONTAINER PRINCIPAL ============ */
 .chatbot-container {
     position: fixed;
     top: 4%;
@@ -272,7 +245,6 @@ body {
     min-height: 650px !important;
     max-width: 800px !important;
     max-height: 600px !important;
-    /* OTIMIZADO: backdrop-filter substituído por background otimizado */
     background: linear-gradient(145deg, 
         rgba(10, 15, 35, 0.95), 
         rgba(15, 25, 55, 0.95), 
@@ -280,14 +252,13 @@ body {
     );
     border: 2px solid rgba(0, 150, 255, 0.3);
     border-radius: 24px;
-    /* OTIMIZADO: 1 sombra ao invés de 3 */
     box-shadow: 0 0 60px rgba(0, 150, 255, 0.3);
     overflow: hidden;
     opacity: 0;
     will-change: transform, opacity;
 }
 
-/* ============ ESTADO WELCOME OTIMIZADO ============ */
+/* ============ CHATBOT - ESTADO WELCOME ============ */
 .chatbot-welcome-state {
     display: flex;
     flex-direction: column;
@@ -296,7 +267,6 @@ body {
     height: 100%;
     padding: 60px 50px 40px;
     opacity: 1;
-    /* OTIMIZADO: transitions específicas */
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
@@ -314,7 +284,6 @@ body {
     width: 250px;
     height: 180px;
     object-fit: contain;
-    /* OTIMIZADO: sombra estática */
     filter: 
         drop-shadow(0 0 25px rgba(0, 150, 255, 0.6))
         drop-shadow(0 0 50px rgba(138, 43, 226, 0.4));
@@ -322,17 +291,7 @@ body {
     will-change: transform;
 }
 
-/* OTIMIZADO: Apenas transform */
-@keyframes chatbotMainRobotFloatOptimized {
-    0%, 100% { 
-        transform: translateY(0px) scale(1);
-    }
-    50% { 
-        transform: translateY(-5px) scale(1.02);
-    }
-}
-
-/* ============ BRANDING OTIMIZADO ============ */
+/* ============ CHATBOT - BRANDING ============ */
 .chatbot-branding {
     text-align: center;
     margin: 30px 0;
@@ -361,16 +320,6 @@ body {
     will-change: background-position;
 }
 
-/* OTIMIZADO: sem filter, apenas background-position */
-@keyframes chatbotTitleGradientOptimized {
-    0% { 
-        background-position: 0% 50%; 
-    }
-    100% { 
-        background-position: 100% 50%; 
-    }
-}
-
 .chatbot-main-subtitle {
     font-family: 'Poppins', sans-serif;
     font-size: 1.4rem;
@@ -380,7 +329,7 @@ body {
     text-shadow: 0 0 20px rgba(0, 150, 255, 0.3);
 }
 
-/* ============ INPUT SECTION ULTRA OTIMIZADA ============ */
+/* ============ CHATBOT - INPUT SECTION ============ */
 .chatbot-input-section {
     width: 100%;
     margin-top: auto;
@@ -398,13 +347,11 @@ body {
     border: 2px solid rgba(0, 150, 255, 0.3);
     border-radius: 50px;
     padding: 0.6px 12px 0.6px 0.6px;
-    /* OTIMIZADO: transitions específicas */
     transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
 .chatbot-input-field:focus-within {
     border-color: rgba(0, 150, 255, 0.6);
-    /* OTIMIZADO: 1 sombra ao invés de 2 */
     box-shadow: 0 0 25px rgba(0, 150, 255, 0.4);
     background: linear-gradient(135deg, 
         rgba(0, 150, 255, 0.15), 
@@ -436,7 +383,7 @@ body {
     font-style: italic;
 }
 
-/* ============ BOTÕES ULTRA OTIMIZADOS ============ */
+/* ============ CHATBOT - BOTÕES ============ */
 .chatbot-send-button, .chatbot-active-send-btn {
     border: none;
     background: linear-gradient(135deg, #00bfff, #8a2be2);
@@ -447,7 +394,6 @@ body {
     justify-content: center;
     border-radius: 50%;
     flex-shrink: 0;
-    /* OTIMIZADO: apenas transform e box-shadow */
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -474,7 +420,7 @@ body {
     transform: scale(0.95);
 }
 
-/* ============ ESTADO ATIVO OTIMIZADO ============ */
+/* ============ CHATBOT - ESTADO ATIVO ============ */
 .chatbot-active-state {
     display: none;
     flex-direction: column;
@@ -529,12 +475,11 @@ body {
     margin-top: 3px;
 }
 
-/* ============ ÁREA DE CONVERSA OTIMIZADA ============ */
+/* ============ CHATBOT - ÁREA DE CONVERSA ============ */
 .chatbot-conversation-area {
     flex: 1;
     padding: 30px;
     overflow-y: auto;
-    /* OTIMIZADO: scrollbar simplificada */
     scrollbar-width: thin;
     scrollbar-color: rgba(0, 150, 255, 0.5) transparent;
 }
@@ -552,24 +497,12 @@ body {
     border-radius: 3px;
 }
 
-/* ============ MENSAGENS OTIMIZADAS ============ */
+/* ============ CHATBOT - MENSAGENS ============ */
 .chatbot-message {
     display: flex;
     gap: 15px;
     margin-bottom: 25px;
     animation: chatbotMessageAppearOptimized 0.3s ease-out;
-}
-
-/* OTIMIZADO: apenas transform e opacity */
-@keyframes chatbotMessageAppearOptimized {
-    0% {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .chatbot-message-user {
@@ -646,7 +579,7 @@ body {
     text-align: right;
 }
 
-/* ============ INPUT ATIVO ULTRA OTIMIZADO ============ */
+/* ============ CHATBOT - INPUT ATIVO ============ */
 .chatbot-input-area {
     padding: 25px 30px;
     border-top: 1px solid rgba(0, 150, 255, 0.3);
@@ -672,7 +605,6 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     outline: none;
-    /* OTIMIZADO: transitions específicas */
     transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
@@ -686,7 +618,7 @@ body {
     color: rgba(255, 255, 255, 0.4);
 }
 
-/* ============ INDICADOR DE DIGITAÇÃO OTIMIZADO ============ */
+/* ============ CHATBOT - INDICADOR DE DIGITAÇÃO ============ */
 .chatbot-typing-indicator {
     display: none;
     align-items: center;
@@ -715,19 +647,7 @@ body {
     animation-delay: 0.3s;
 }
 
-/* OTIMIZADO: apenas transform */
-@keyframes chatbotTypingAnimationOptimized {
-    0%, 60%, 100% {
-        transform: translateY(0);
-        opacity: 0.4;
-    }
-    30% {
-        transform: translateY(-12px);
-        opacity: 1;
-    }
-}
-
-/* ============ BOTÕES DE AÇÃO ULTRA OTIMIZADOS ============ */
+/* ============ BOTÕES DE AÇÃO DO CHATBOT ============ */
 .chatbot-action-buttons {
     position: fixed;
     bottom: 13px;
@@ -751,7 +671,6 @@ body {
     font-size: 0.85rem;
     font-weight: 400;
     cursor: pointer;
-    /* OTIMIZADO: transitions específicas, sem filter */
     transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(15px);
     min-width: 160px;
@@ -774,9 +693,59 @@ body {
     animation: chatbotButtonSlideInOptimized 0.6s ease-out 2.4s forwards;
 }
 
-/* ============ ANIMAÇÕES FINAIS ULTRA OTIMIZADAS ============ */
+.chatbot-action-btn:hover {
+    transform: scale(1.02);
+    background: rgba(0, 150, 255, 0.12);
+    border-color: rgba(0, 150, 255, 0.5);
+}
 
-/* OTIMIZADO: sem filter, apenas transform */
+/* ============ TRANSIÇÕES E ANIMAÇÕES DO CHATBOT ============ */
+.chatbot-welcome-state.fade-out {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+@keyframes chatbotMainRobotFloatOptimized {
+    0%, 100% { 
+        transform: translateY(0px) scale(1);
+    }
+    50% { 
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+@keyframes chatbotTitleGradientOptimized {
+    0% { 
+        background-position: 0% 50%; 
+    }
+    100% { 
+        background-position: 100% 50%; 
+    }
+}
+
+@keyframes chatbotMessageAppearOptimized {
+    0% {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes chatbotTypingAnimationOptimized {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    30% {
+        transform: translateY(-12px);
+        opacity: 1;
+    }
+}
+
 @keyframes chatbotButtonsAppearOptimized {
     0% {
         opacity: 0;
@@ -788,7 +757,6 @@ body {
     }
 }
 
-/* OTIMIZADO: sem filter blur */
 @keyframes chatbotButtonSlideInOptimized {
     0% {
         opacity: 0;
@@ -800,36 +768,22 @@ body {
     }
 }
 
-/* ============ TRANSIÇÕES OTIMIZADAS ============ */
-.chatbot-welcome-state.fade-out {
-    opacity: 0;
-    transform: translateY(-30px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-
-/* ============ RESPONSIVIDADE MOBILE - APENAS PARA TELAS ≤ 767px ============ */
+/* ============ RESPONSIVIDADE MOBILE ============ */
 @media (max-width: 767px) {
-
-    /* OCULTAR ELEMENTOS DO CENÁRIO NO MOBILE */
-    .robo,
-    .mesa,
-    .notebook,
-    .teclado,
-    .caixas,
-    .fundo {
+    /* Ocultar elementos do cenário no mobile */
+    .robo, .mesa, .notebook, .teclado, .caixas, .fundo {
         opacity: 0 !important;
         pointer-events: none;
         visibility: hidden;
     }
 
-    /* PERMITIR SCROLL VERTICAL NO MOBILE */
+    /* Permitir scroll vertical no mobile */
     body {
         overflow: auto;
         overflow-x: hidden;
     }
 
-    /* AJUSTAR CONTAINER DO CHATBOT PARA MOBILE */
+    /* Ajustar container do chatbot para mobile */
     .chatbot-container {
         position: fixed;
         top: 50%;
@@ -842,57 +796,57 @@ body {
         max-height: 60vh !important;
         min-height: 50vh !important;
         margin-bottom: 0;
-        overflow: hidden !important; /* CRÍTICO: garantir que nada saia do container */
+        overflow: hidden !important;
     }
 
-    /* AJUSTAR ESTADO WELCOME NO MOBILE */
+    /* Ajustar estado welcome no mobile */
     .chatbot-welcome-state {
         padding: 40px 20px 20px;
-        overflow: hidden; /* CRÍTICO: impede elementos de sairem */
+        overflow: hidden;
     }
 
-    /* CORRIGIR INPUT FIELD PARA MOBILE - MANTÉM BOTÃO DENTRO */
+    /* Corrigir input field para mobile */
     .chatbot-input-field {
-        gap: 8px !important; /* Espaçamento menor no mobile */
-        padding: 4px 8px 4px 4px !important; /* Padding ajustado */
+        gap: 8px !important;
+        padding: 4px 8px 4px 4px !important;
         max-width: 100%;
         box-sizing: border-box;
-        overflow: hidden; /* CRÍTICO: impede overflow do botão */
+        overflow: hidden;
     }
 
-    /* AJUSTAR INPUT SECTION NO MOBILE */
+    /* Ajustar input section no mobile */
     .chatbot-input-section {
         margin-top: 15px;
         width: 100%;
         max-width: 100%;
-        padding: 0 10px; /* Margem interna para evitar cortes */
+        padding: 0 10px;
         box-sizing: border-box;
     }
 
-    /* CORRIGIR BOTÃO DE ENVIO NO MOBILE - TAMANHO E POSIÇÃO */
+    /* Corrigir botão de envio no mobile */
     .chatbot-send-button {
         width: 44px !important;
         height: 44px !important;
         font-size: 1rem !important;
-        flex-shrink: 0 !important; /* CRÍTICO: não permite encolher */
-        min-width: 44px !important; /* CRÍTICO: tamanho mínimo garantido */
-        max-width: 44px !important; /* CRÍTICO: evita expansão */
+        flex-shrink: 0 !important;
+        min-width: 44px !important;
+        max-width: 44px !important;
     }
 
-    /* AJUSTAR ROBÔ PRINCIPAL NO MOBILE */
+    /* Ajustar robô principal no mobile */
     .chatbot-main-robot {
         width: 180px;
         height: 130px;
         top: 35px;
     }
 
-    /* AJUSTAR BRANDING NO MOBILE */
+    /* Ajustar branding no mobile */
     .chatbot-branding {
         margin: 15px 0;
         margin-top: -70px;
     }
 
-    /* AJUSTAR TÍTULO NO MOBILE */
+    /* Ajustar título no mobile */
     .chatbot-main-title {
         top: 10px;
         font-size: 2.2rem;
@@ -900,28 +854,28 @@ body {
         margin-top: 4px;
     }
 
-    /* AJUSTAR SUBTÍTULO NO MOBILE */
+    /* Ajustar subtítulo no mobile */
     .chatbot-main-subtitle {
         font-size: 1rem;
         margin-top: 8px;
     }
 
-    /* AJUSTAR INPUT NO MOBILE */
+    /* Ajustar input no mobile */
     .chatbot-main-input {
         padding: 12px 16px !important;
         font-size: 0.95rem;
-        min-width: 0; /* CRÍTICO: permite que o input se comprima */
+        min-width: 0;
         flex: 1;
     }
 
-    /* AJUSTAR MIC ICON NO MOBILE */
+    /* Ajustar mic icon no mobile */
     .chatbot-mic-icon {
         margin-left: 12px;
         font-size: 1.2rem;
-        flex-shrink: 0; /* CRÍTICO: não permite encolher */
+        flex-shrink: 0;
     }
 
-    /* BOTÃO ATIVO TAMBÉM AJUSTADO */
+    /* Botão ativo também ajustado */
     .chatbot-active-send-btn {
         width: 40px !important;
         height: 40px !important;
@@ -929,13 +883,13 @@ body {
         flex-shrink: 0 !important;
     }
 
-    /* HOVER EFFECTS REDUZIDOS NO MOBILE */
+    /* Hover effects reduzidos no mobile */
     .chatbot-send-button:hover,
     .chatbot-active-send-btn:hover {
-        transform: scale(1.02) !important; /* CRÍTICO: escala menor para não sair do container */
+        transform: scale(1.02) !important;
     }
 
-    /* REPOSICIONAR BOTÕES DE AÇÃO PARA MOBILE - ABAIXO DO CHAT */
+    /* Reposicionar botões de ação para mobile */
     .chatbot-action-buttons {
         position: fixed;
         bottom: 30px;
@@ -954,7 +908,7 @@ body {
         margin-top: 10px;
     }
 
-    /* AJUSTAR BOTÕES INDIVIDUAIS NO MOBILE */
+    /* Ajustar botões individuais no mobile */
     .chatbot-action-btn {
         min-width: 120px;
         max-width: 130px;
@@ -972,7 +926,7 @@ body {
         backdrop-filter: blur(10px);
     }
 
-    /* ORGANIZAR BOTÕES - DOIS NA PRIMEIRA LINHA, UM NA SEGUNDA */
+    /* Organizar botões */
     .chatbot-action-btn:nth-child(1),
     .chatbot-action-btn:nth-child(2) {
         animation: none;
@@ -987,13 +941,13 @@ body {
         margin-top: 5px;
     }
 
-    /* AJUSTAR ESTADO ATIVO DO CHATBOT NO MOBILE */
+    /* Ajustar estado ativo do chatbot no mobile */
     .chatbot-active-state {
         height: 100%;
-        overflow: hidden; /* CRÍTICO: impede overflow */
+        overflow: hidden;
     }
 
-    /* AJUSTAR HEADER DO CHATBOT NO MOBILE */
+    /* Ajustar header do chatbot no mobile */
     .chatbot-header-bar {
         padding: 20px 25px;
     }
@@ -1006,16 +960,16 @@ body {
         font-size: 0.9rem;
     }
 
-    /* AJUSTAR ÁREA DE CONVERSA NO MOBILE */
+    /* Ajustar área de conversa no mobile */
     .chatbot-conversation-area {
         padding: 20px 25px;
         flex: 1;
         min-height: 200px;
         max-height: 50vh;
-        overflow: hidden auto; /* CRÍTICO: scroll apenas vertical */
+        overflow: hidden auto;
     }
 
-    /* AJUSTAR MENSAGENS NO MOBILE */
+    /* Ajustar mensagens no mobile */
     .chatbot-message {
         margin-bottom: 20px;
         gap: 12px;
@@ -1041,38 +995,37 @@ body {
         border-radius: 16px 16px 4px 16px;
     }
 
-    /* AJUSTAR INPUT ATIVO NO MOBILE */
+    /* Ajustar input ativo no mobile */
     .chatbot-input-area {
         padding: 15px 20px;
-        overflow: hidden; /* CRÍTICO: impede overflow */
+        overflow: hidden;
     }
 
     .chatbot-active-input-field {
         gap: 12px !important;
         max-width: 100%;
-        overflow: hidden; /* CRÍTICO: impede overflow */
+        overflow: hidden;
     }
 
     .chatbot-active-input {
         padding: 12px 16px;
         font-size: 0.9rem;
         border-radius: 22px;
-        min-width: 0; /* CRÍTICO: permite compressão */
+        min-width: 0;
         flex: 1;
     }
 
-    /* AJUSTAR INDICADOR DE DIGITAÇÃO NO MOBILE */
+    /* Ajustar indicador de digitação no mobile */
     .chatbot-typing-indicator {
         padding-left: 15px;
         margin-bottom: 15px;
     }
 
-    /* AJUSTAR HOVER EFFECTS PARA TOUCH NO MOBILE */
+    /* Ajustar hover effects para touch no mobile */
     .chatbot-action-btn:hover {
         transform: scale(1.02);
         background: rgba(0, 150, 255, 0.12);
         border-color: rgba(0, 150, 255, 0.5);
     }
-
 }
 
