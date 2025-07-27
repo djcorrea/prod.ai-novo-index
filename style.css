@@ -449,11 +449,19 @@ body {
 }
 
 .chatbot-send-button {
-    width: 56px;
-    height: 56px;
+    width: 50px; /* Reduzir de 56px para 50px - igual ao ativo */
+    height: 50px; /* Reduzir de 56px para 50px - igual ao ativo */  
     border-radius: 50%;
-    font-size: 1.3rem;
-    box-shadow: 0 4px 18px rgba(0, 150, 255, 0.4);
+    font-size: 1.1rem; /* Reduzir de 1.3rem para 1.1rem - igual ao ativo */
+    box-shadow: 0 4px 15px rgba(0, 150, 255, 0.4); /* Usar a mesma sombra do ativo */
+    border: none;
+    background: linear-gradient(135deg, #00bfff, #8a2be2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .chatbot-active-send-btn {
