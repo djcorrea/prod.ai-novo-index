@@ -844,43 +844,17 @@ body {
     }
 
     /* AJUSTAR ESTADO WELCOME NO MOBILE */
- /* ENVOLVE O INPUT + AVIÃO DENTRO DE UM CONTAINER */
-.chatbot-welcome-state .chatbot-input-section {
-  position: relative;
-  width: 100%;
-  padding: 0 20px;
-}
-
-/* ESTILO DO INPUT */
-.chatbot-welcome-state .chatbot-main-input {
-  width: 100%;
-  padding: 14px 55px 14px 50px; /* espaço pra ícones */
-  font-size: 1rem;
-  border-radius: 25px;
-  border: none;
-  outline: none;
-  background: linear-gradient(to right, #13132a, #1f1f3a);
-  color: white;
-}
-
-/* BOTÃO AVIÃO DENTRO DO INPUT */
+   /* Forçar tamanho correto do botão no primeiro chat */
 .chatbot-welcome-state .chatbot-send-button {
-  position: absolute;
-  top: 50%;
-  right: 30px;
-  transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  border: none;
-  background: transparent;
-  color: white;
-  font-size: 1.2rem;
+  width: 48px !important;
+  height: 48px !important;
+  font-size: 1.1rem !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  margin-left: 10px;
+  border-radius: 50%;
 }
-
 
     }
 
