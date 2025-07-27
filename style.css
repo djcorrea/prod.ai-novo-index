@@ -390,6 +390,7 @@ body {
     position: relative;
     display: flex;
     align-items: center;
+    gap: 15px; /* ADICIONAR ESTA LINHA - mesmo gap do chat ativo */
     background: linear-gradient(135deg, 
         rgba(0, 150, 255, 0.1), 
         rgba(138, 43, 226, 0.1)
@@ -397,7 +398,6 @@ body {
     border: 2px solid rgba(0, 150, 255, 0.3);
     border-radius: 50px;
     padding: 0.6px;
-    /* OTIMIZADO: transitions específicas */
     transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -900,7 +900,6 @@ body {
 
    /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
 .chatbot-send-button {
-    right: 20px;
     width: 50px; /* Reduzir de 56px para 50px - igual ao ativo */
     height: 50px; /* Reduzir de 56px para 50px - igual ao ativo */  
     border-radius: 50%;
