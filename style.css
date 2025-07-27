@@ -837,8 +837,8 @@ body {
         width: calc(100vw - 30px) !important;
         max-width: 400px !important;
         min-width: auto !important;
-        height: 50vh !important; /* aumentado */
-        max-height: 50vh !important; /* aumentado */
+        height: 60vh !important; /* aumentado */
+        max-height: 60vh !important; /* aumentado */
         min-height: 50vh !important; /* ajustado */
         margin-bottom: 0;
     }
