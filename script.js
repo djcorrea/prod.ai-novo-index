@@ -473,13 +473,13 @@ class ProdAIChatbot {
                 ease: "power2.inOut"
             })
             
-            // Expandir container SINCRONIZADO
-            .to(this.container, {
-                width: 850,
-                height: 750,
-                duration: 0.4, // Mais rápido
-                ease: "back.out(1.7)"
-            }, "-=0.15") // Overlap maior
+            // Expandir container SINCRONIZADO - SEM BOUNCE
+.to(this.container, {
+    width: 850,
+    height: 750,
+    duration: 0.4,
+    ease: "power2.out"  // MUDANÇA: ease mais suave, sem bounce
+}, "-=0.15")
             
             // Mostrar estado ativo
             .set(this.welcomeState, { display: 'none' })
