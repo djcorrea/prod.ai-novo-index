@@ -806,166 +806,143 @@ body {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* ============ RESPONSIVIDADE SIMPLIFICADA PARA MOBILE ============ */
+/* ============ RESPONSIVIDADE ULTRA OTIMIZADA ============ */
 @media (max-width: 768px) {
-    /* ESCONDER ELEMENTOS DECORATIVOS NO MOBILE */
-    .robo,
-    .caixas,
-    .notebook,
-    .teclado,
-    .mesa,
-    .fundo,
-    .particles-overlay,
-    .vanta-background {
-        display: none !important;
+    .notebook {
+        max-height: 20vh;
+        bottom: 18%;
+        left: 8%;
     }
     
-    /* CHATBOT CENTRALIZADO E ADAPTADO PARA MOBILE */
+    .caixas {
+        max-height: 35vh;
+        bottom: 15%;
+        left: 2%;
+    }
+    
+    .robo {
+        max-height: 55vh;
+        top: 20%;
+        right: 8%;
+    }
+    
+    .teclado {
+        max-height: 120vh;
+        bottom: -50%;
+        left: 20%;
+    }
+    
     .chatbot-container {
-        width: 95vw !important;
-        height: 75vh !important;
-        max-width: none !important;
+        width: 90vw !important;
+        height: 80vh !important;
+        max-width: 700px !important;
         min-width: auto !important;
         min-height: auto !important;
-        top: 5%;
-        left: 50%;
-        transform: translateX(-50%);
+        top: 10%;
     }
     
-    /* BOTÕES REORGANIZADOS HORIZONTALMENTE ABAIXO DO CHAT */
-    .chatbot-action-buttons {
-        position: fixed;
-        bottom: 3%;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 95%;
-        z-index: 1001;
-    }
-    
-    .chatbot-action-btn {
-        flex: 1;
-        max-width: 120px;
-        min-width: auto;
-        padding: 8px 12px;
-        font-size: 0.8rem;
-        text-align: center;
-        border-radius: 20px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    /* AJUSTES NO CONTEÚDO DO CHATBOT PARA MOBILE */
     .chatbot-main-robot {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
     
     .chatbot-main-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     
     .chatbot-main-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     
-    .chatbot-welcome-state {
-        padding: 40px 30px 30px;
+    /* OTIMIZADO: Desabilitar animações em tablets também */
+    .robo, .notebook, .teclado, .caixas, .mesa {
+        animation: none;
+        will-change: auto;
     }
     
-    /* ÁREA DE CONVERSA ADAPTADA */
-    .chatbot-conversation-area {
-        padding: 25px;
-    }
-    
-    .chatbot-message {
-        margin-bottom: 20px;
-    }
-    
-    .chatbot-message-bubble {
-        padding: 14px 18px;
-        font-size: 0.95rem;
-    }
-    
-    /* INPUT ADAPTADO PARA MOBILE */
-    .chatbot-input-area {
-        padding: 20px;
-    }
-    
-    .chatbot-active-input {
-        padding: 14px 20px;
-        font-size: 0.95rem;
-    }
-    
-    .chatbot-main-input {
-        padding: 18px 22px;
-        font-size: 1rem;
+    .particles-overlay {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
-    /* AJUSTES PARA SMARTPHONES MENORES */
-    .chatbot-container {
-        width: 98vw !important;
-        height: 70vh !important;
-        top: 8%;
+    .notebook {
+        max-height: 18vh;
+        bottom: 20%;
+        left: 10%;
     }
     
-    .chatbot-action-buttons {
-        bottom: 2%;
-        width: 98%;
-        gap: 8px;
+    .caixas {
+        max-height: 30vh;
+        bottom: 18%;
+        left: 3%;
     }
     
-    .chatbot-action-btn {
-        max-width: 110px;
-        padding: 6px 10px;
-        font-size: 0.75rem;
-        border-radius: 18px;
+    .robo {
+        max-height: 50vh;
+        top: 25%;
+        right: 10%;
     }
     
-    .chatbot-main-title {
-        font-size: 2rem;
+    .teclado {
+        max-height: 100vh;
+        bottom: -45%;
+        left: 22%;
     }
     
-    .chatbot-main-subtitle {
-        font-size: 1rem;
+    /* Desabilitar animações em dispositivos móveis para melhor performance */
+    .robo, .notebook, .teclado, .caixas, .mesa {
+        animation: none;
+        will-change: auto;
     }
     
-    .chatbot-main-robot {
-        width: 80px;
-        height: 80px;
+    .particles-overlay {
+        display: none;
     }
-    
-    .chatbot-welcome-state {
-        padding: 30px 25px 25px;
-    }
-    
-    .chatbot-conversation-area {
-        padding: 20px;
-    }
-    
-    .chatbot-message-bubble {
-        padding: 12px 16px;
-        font-size: 0.9rem;
-    }
-    
-    .chatbot-input-area {
-        padding: 18px;
-    }
-    
-    .chatbot-active-input {
-        padding: 12px 18px;
-        font-size: 0.9rem;
-    }
-    
-    .chatbot-main-input {
-        padding: 16px 20px;
-        font-size: 0.95rem;
-    }
+}
+
+/* ============ EFEITOS HOVER OTIMIZADOS PARA BOTÕES ============ */
+
+.chatbot-action-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.chatbot-action-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 
+        0 6px 25px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 150, 255, 0.4),
+        0 0 40px rgba(0, 150, 255, 0.2);
+    opacity: 0.95;
+}
+
+.chatbot-action-btn:active {
+    transform: translateY(-1px) scale(1.01);
+    transition: transform 0.1s ease;
+}
+
+@media (max-width: 768px) {
+   .chatbot-action-buttons {
+       position: fixed;
+       bottom: 3%;
+       left: 50%;
+       transform: translateX(-50%);
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       align-items: center;
+       gap: 12px;
+       width: 95%;
+       z-index: 1001;
+   }
+   
+   .chatbot-action-btn {
+       flex: 1;
+       max-width: 130px;
+       text-align: center;
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis;
+   }
 }
