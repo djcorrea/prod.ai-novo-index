@@ -809,7 +809,7 @@ body {
 /* ============ RESPONSIVIDADE MOBILE - APENAS PARA TELAS ≤ 767px ============ */
 @media (max-width: 767px) {
     
-    /* OCULTAR TODOS OS ELEMENTOS DE CENÁRIO NO MOBILE */
+    /* OCULTAR ELEMENTOS DO CENÁRIO NO MOBILE */
     .robo,
     .mesa,
     .notebook,
@@ -821,44 +821,33 @@ body {
         visibility: hidden;
     }
     
-    /* AJUSTAR CONTAINER DO CENÁRIO PARA MOBILE */
-    .cenario {
-        /* Manter fundo animado funcionando */
-        background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #16213e 100%);
-        padding: 20px;
+    /* PERMITIR SCROLL VERTICAL NO MOBILE */
+    body {
+        overflow: auto;
+        overflow-x: hidden;
     }
     
-    /* MANTER OVERLAY DE PARTÍCULAS FUNCIONANDO NO MOBILE */
-    .particles-overlay {
-        opacity: 0.6;
-    }
-    
-    /* MANTER FUNDO VANTA FUNCIONANDO NO MOBILE */
-    .vanta-background {
-        opacity: 0.7;
-    }
-    
-    /* AJUSTAR CHATBOT PARA MOBILE - CENTRALIZADO COM ESPAÇAMENTO LATERAL */
+    /* AJUSTAR CONTAINER DO CHATBOT PARA MOBILE */
     .chatbot-container {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: calc(100vw - 40px) !important;
-        max-width: 420px !important;
+        width: calc(100vw - 30px) !important;
+        max-width: 400px !important;
         min-width: auto !important;
         height: auto !important;
-        max-height: 70vh !important;
+        max-height: 75vh !important;
         min-height: auto !important;
-        margin-bottom: 120px;
+        margin-bottom: 0;
     }
     
-    /* AJUSTAR PADDING INTERNO DO CHATBOT NO MOBILE */
+    /* AJUSTAR ESTADO WELCOME NO MOBILE */
     .chatbot-welcome-state {
         padding: 30px 25px;
-        min-height: auto;
-        justify-content: center;
         gap: 20px;
+        justify-content: center;
+        min-height: auto;
     }
     
     /* AJUSTAR ROBÔ PRINCIPAL NO MOBILE */
@@ -866,6 +855,11 @@ body {
         width: 180px;
         height: 130px;
         top: 20px;
+    }
+    
+    /* AJUSTAR BRANDING NO MOBILE */
+    .chatbot-branding {
+        margin: 15px 0;
     }
     
     /* AJUSTAR TÍTULO NO MOBILE */
@@ -879,20 +873,21 @@ body {
         font-size: 1rem;
     }
     
-    /* AJUSTAR BRANDING NO MOBILE */
-    .chatbot-branding {
-        margin: 15px 0;
-    }
-    
     /* AJUSTAR INPUT SECTION NO MOBILE */
     .chatbot-input-section {
-        margin-top: 20px;
+        margin-top: 15px;
     }
     
     /* AJUSTAR INPUT FIELD NO MOBILE */
     .chatbot-main-input {
         padding: 16px 20px;
         font-size: 1rem;
+    }
+    
+    /* AJUSTAR MIC ICON NO MOBILE */
+    .chatbot-mic-icon {
+        margin-left: 20px;
+        font-size: 1.2rem;
     }
     
     /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
@@ -919,17 +914,18 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
-        width: calc(100vw - 40px);
-        max-width: 420px;
+        width: calc(100vw - 30px);
+        max-width: 400px;
         z-index: 1001;
         opacity: 1;
         animation: none;
+        margin-top: 20px;
     }
     
     /* AJUSTAR BOTÕES INDIVIDUAIS NO MOBILE */
     .chatbot-action-btn {
-        min-width: 130px;
-        max-width: 140px;
+        min-width: 120px;
+        max-width: 130px;
         flex: 1;
         padding: 12px 16px;
         font-size: 0.8rem;
@@ -941,9 +937,10 @@ body {
         opacity: 1;
         animation: none;
         margin: 0;
+        backdrop-filter: blur(10px);
     }
     
-    /* ORGANIZAR BOTÕES EM DUAS LINHAS SE NECESSÁRIO */
+    /* ORGANIZAR BOTÕES - DOIS NA PRIMEIRA LINHA, UM NA SEGUNDA */
     .chatbot-action-btn:nth-child(1),
     .chatbot-action-btn:nth-child(2) {
         animation: none;
@@ -954,7 +951,7 @@ body {
         animation: none;
         opacity: 1;
         width: 100%;
-        max-width: 290px;
+        max-width: 270px;
         margin-top: 5px;
     }
     
@@ -981,7 +978,7 @@ body {
         padding: 20px 25px;
         flex: 1;
         min-height: 200px;
-        max-height: 40vh;
+        max-height: 45vh;
     }
     
     /* AJUSTAR MENSAGENS NO MOBILE */
@@ -1027,12 +1024,6 @@ body {
         margin-bottom: 15px;
     }
     
-    /* GARANTIR QUE BODY NÃO TENHA SCROLL HORIZONTAL NO MOBILE */
-    body {
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-    
     /* AJUSTAR HOVER EFFECTS PARA TOUCH NO MOBILE */
     .chatbot-action-btn:hover {
         transform: scale(1.02);
@@ -1043,11 +1034,6 @@ body {
     .chatbot-send-button:hover,
     .chatbot-active-send-btn:hover {
         transform: scale(1.05);
-    }
-    
-    /* GARANTIR QUE ELEMENTOS DO CENÁRIO NÃO INTERFIRAM NO MOBILE */
-    .cenario img {
-        display: none !important;
     }
     
 }
