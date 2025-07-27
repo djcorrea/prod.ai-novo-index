@@ -859,12 +859,13 @@ body {
 
     /* GARANTIR QUE O CONTAINER DE INPUT MANTENHA O LAYOUT FLEXÍVEL */
     .chatbot-input-section {
-        margin-top: 15px;
+        margin-top: 10px;
         display: flex !important;
         align-items: center !important;
-        gap: 5px !important;
-        width: 100% !important;
-        padding: 0 5px !important;
+        gap: 8px !important;
+        width: calc(100% - 20px) !important;
+        padding: 0 10px !important;
+        box-sizing: border-box !important;
     }
 
     /* GARANTIR QUE O INPUT OCUPE O ESPAÇO DISPONÍVEL */
@@ -877,21 +878,22 @@ body {
 
     /* AJUSTAR INPUT ATIVO PARA MANTER LAYOUT FLEXÍVEL */
     .chatbot-input-area {
-        padding: 10px 15px;
+        padding: 8px 12px !important;
         display: flex !important;
         align-items: center !important;
-        gap: 5px !important;
-        width: 100% !important;
+        gap: 8px !important;
+        width: calc(100% - 20px) !important;
+        box-sizing: border-box !important;
     }
 
     .chatbot-active-input {
-        padding: 8px 10px;
-        font-size: 0.8rem;
-        border-radius: 18px;
-        flex: 1 !important; /* Ocupa o espaço disponível */
-        min-width: 0 !important; /* Permite que o input encolha se necessário */
-        max-width: calc(100% - 45px) !important; /* Reserva espaço para o botão */
-        width: auto !important;
+        padding: 6px 8px !important;
+        font-size: 0.75rem !important;
+        border-radius: 15px !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        width: calc(100% - 40px) !important;
+        box-sizing: border-box !important;
     }
 
     /* AJUSTAR ROBÔ PRINCIPAL NO MOBILE */
@@ -919,26 +921,30 @@ body {
 
     /* AJUSTAR MIC ICON NO MOBILE */
     .chatbot-mic-icon {
-        margin-left: 12px;
-        font-size: 1.2rem;
+        margin-left: 0 !important;
+        margin-right: 8px !important;
+        font-size: 1rem;
         flex-shrink: 0; /* Impede que o ícone encolha */
+        width: 20px !important;
     }
 
     /* AJUSTAR BOTÕES DE ENVIO NO MOBILE */
     .chatbot-send-button {
-        width: 36px;
-        height: 36px;
-        font-size: 0.85rem;
-        flex-shrink: 0; /* Impede que o botão encolha */
-        margin-left: 0; /* Remove margem conflitante */
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.75rem !important;
+        flex-shrink: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .chatbot-active-send-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 0.8rem;
-        flex-shrink: 0; /* Impede que o botão encolha */
-        margin-left: 0; /* Remove margem conflitante */
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.7rem !important;
+        flex-shrink: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     /* REPOSICIONAR BOTÕES DE AÇÃO PARA MOBILE - ABAIXO DO CHAT */
@@ -952,8 +958,8 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
-        width: calc(100vw - 30px);
-        max-width: 400px;
+        width: calc(100vw - 40px); /* ajustado para combinar */
+        max-width: 350px; /* ajustado para combinar */
         z-index: 1001;
         opacity: 1;
         animation: none;
