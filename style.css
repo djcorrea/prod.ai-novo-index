@@ -806,12 +806,24 @@ body {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* ============ RESPONSIVIDADE ULTRA OTIMIZADA ============ */
+/* ============ RESPONSIVIDADE SIMPLIFICADA PARA MOBILE ============ */
 @media (max-width: 768px) {
-    /* CHATBOT CENTRALIZADO E ADAPTADO */
+    /* ESCONDER ELEMENTOS DECORATIVOS NO MOBILE */
+    .robo,
+    .caixas,
+    .notebook,
+    .teclado,
+    .mesa,
+    .fundo,
+    .particles-overlay,
+    .vanta-background {
+        display: none !important;
+    }
+    
+    /* CHATBOT CENTRALIZADO E ADAPTADO PARA MOBILE */
     .chatbot-container {
         width: 95vw !important;
-        height: 70vh !important;
+        height: 75vh !important;
         max-width: none !important;
         min-width: auto !important;
         min-height: auto !important;
@@ -820,73 +832,27 @@ body {
         transform: translateX(-50%);
     }
     
-    /* ROBÔ REPOSICIONADO ELEGANTEMENTE */
-    .robo {
-        max-height: 30vh;
-        top: 78%;
-        right: 5%;
-        left: auto;
-        z-index: 5;
-    }
-    
-    /* CAIXAS REPOSICIONADAS PARA NÃO CONFLITAR */
-    .caixas {
-        max-height: 25vh;
-        bottom: 22%;
-        left: 5%;
-        z-index: 4;
-    }
-    
-    /* NOTEBOOK E TECLADO REDIMENSIONADOS */
-    .notebook {
-        max-height: 15vh;
-        bottom: 25%;
-        left: 8%;
-    }
-    
-    .teclado {
-        max-height: 80vh;
-        bottom: -35%;
-        left: 15%;
-        opacity: 0.7;
-    }
-    
-    /* MESA REDIMENSIONADA */
-    .mesa {
-        max-height: 800px;
-        bottom: -60%;
-        left: -250px;
-        width: 120%;
-    }
-    
-    /* FUNDO ADAPTADO */
-    .fundo {
-        top: -300px;
-        width: 150vw;
-        height: 1200px;
-        left: -25vw;
-    }
-    
-    /* BOTÕES DE AÇÃO CENTRALIZADOS E ELEGANTES */
+    /* BOTÕES REORGANIZADOS HORIZONTALMENTE ABAIXO DO CHAT */
     .chatbot-action-buttons {
         position: fixed;
-        bottom: 2%;
-        right: auto;
+        bottom: 3%;
         left: 50%;
         transform: translateX(-50%);
+        display: flex;
         flex-direction: row;
         justify-content: center;
-        gap: 8px;
+        align-items: center;
+        gap: 10px;
         width: 95%;
         z-index: 1001;
     }
     
     .chatbot-action-btn {
-        min-width: auto;
-        width: 30%;
+        flex: 1;
         max-width: 120px;
-        padding: 6px 12px;
-        font-size: 0.75rem;
+        min-width: auto;
+        padding: 8px 12px;
+        font-size: 0.8rem;
         text-align: center;
         border-radius: 20px;
         white-space: nowrap;
@@ -894,250 +860,112 @@ body {
         text-overflow: ellipsis;
     }
     
-    /* CHATBOT MOBILE ADAPTAÇÕES */
+    /* AJUSTES NO CONTEÚDO DO CHATBOT PARA MOBILE */
     .chatbot-main-robot {
         width: 100px;
         height: 100px;
-        top: 20px;
     }
     
     .chatbot-main-title {
-        font-size: 2.2rem;
-        letter-spacing: 1px;
+        font-size: 2.5rem;
     }
     
     .chatbot-main-subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     
     .chatbot-welcome-state {
-        padding: 40px 25px 30px;
+        padding: 40px 30px 30px;
     }
     
-    .chatbot-branding {
-        margin: 20px 0;
-    }
-    
-    /* CONVERSAÇÃO MOBILE */
+    /* ÁREA DE CONVERSA ADAPTADA */
     .chatbot-conversation-area {
-        padding: 20px;
+        padding: 25px;
     }
     
     .chatbot-message {
         margin-bottom: 20px;
-        gap: 12px;
-    }
-    
-    .chatbot-message-avatar {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
     }
     
     .chatbot-message-bubble {
-        padding: 12px 16px;
-        font-size: 0.9rem;
-        border-radius: 18px;
+        padding: 14px 18px;
+        font-size: 0.95rem;
     }
     
-    .chatbot-message-assistant .chatbot-message-bubble {
-        border-radius: 18px 18px 18px 4px;
-    }
-    
-    .chatbot-message-user .chatbot-message-bubble {
-        border-radius: 18px 18px 4px 18px;
-    }
-    
-    /* INPUT MOBILE */
+    /* INPUT ADAPTADO PARA MOBILE */
     .chatbot-input-area {
         padding: 20px;
     }
     
-    .chatbot-active-input-field {
-        gap: 10px;
-    }
-    
     .chatbot-active-input {
-        padding: 14px 18px;
-        font-size: 0.9rem;
-        border-radius: 25px;
+        padding: 14px 20px;
+        font-size: 0.95rem;
     }
     
-    .chatbot-active-send-btn {
-        width: 45px;
-        height: 45px;
-        font-size: 1rem;
-    }
-    
-    /* HEADER MOBILE */
-    .chatbot-header-bar {
-        padding: 20px;
-    }
-    
-    .chatbot-header-name {
-        font-size: 1.4rem;
-    }
-    
-    .chatbot-header-desc {
-        font-size: 0.9rem;
-    }
-    
-    /* INPUT PRINCIPAL MOBILE */
     .chatbot-main-input {
-        padding: 16px 20px;
+        padding: 18px 22px;
         font-size: 1rem;
-    }
-    
-    .chatbot-send-button {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-    
-    .chatbot-mic-icon {
-        margin-left: 18px;
-        font-size: 1.2rem;
-    }
-    
-    /* PERFORMANCE MOBILE - Desabilitar animações pesadas */
-    .robo, .notebook, .teclado, .caixas, .mesa {
-        animation: none;
-        will-change: auto;
-    }
-    
-    .particles-overlay {
-        display: none;
-    }
-    
-    /* VANTA BACKGROUND MOBILE */
-    .vanta-background {
-        opacity: 0.6;
     }
 }
 
 @media (max-width: 480px) {
-    /* AJUSTES PARA TELAS MUITO PEQUENAS */
+    /* AJUSTES PARA SMARTPHONES MENORES */
     .chatbot-container {
         width: 98vw !important;
-        height: 65vh !important;
+        height: 70vh !important;
         top: 8%;
     }
     
-    .robo {
-        max-height: 25vh;
-        top: 75%;
-        right: 2%;
-    }
-    
-    .caixas {
-        max-height: 20vh;
-        bottom: 25%;
-        left: 2%;
-    }
-    
-    .notebook {
-        max-height: 12vh;
-        bottom: 28%;
-        left: 5%;
-    }
-    
-    .teclado {
-        max-height: 70vh;
-        bottom: -30%;
-        left: 12%;
-        opacity: 0.5;
-    }
-    
-    /* BOTÕES EXTRA PEQUENOS */
     .chatbot-action-buttons {
-        bottom: 1%;
+        bottom: 2%;
         width: 98%;
-        gap: 6px;
+        gap: 8px;
     }
     
     .chatbot-action-btn {
-        width: 32%;
-        max-width: 100px;
-        padding: 5px 8px;
-        font-size: 0.7rem;
+        max-width: 110px;
+        padding: 6px 10px;
+        font-size: 0.75rem;
         border-radius: 18px;
     }
     
-    /* CHATBOT CONTENT MOBILE */
     .chatbot-main-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     
     .chatbot-main-subtitle {
-        font-size: 0.9rem;
-    }
-    
-    .chatbot-welcome-state {
-        padding: 30px 20px 25px;
+        font-size: 1rem;
     }
     
     .chatbot-main-robot {
         width: 80px;
         height: 80px;
-        top: 10px;
     }
     
-    /* CONVERSAÇÃO COMPACTA */
+    .chatbot-welcome-state {
+        padding: 30px 25px 25px;
+    }
+    
     .chatbot-conversation-area {
-        padding: 15px;
-    }
-    
-    .chatbot-message {
-        margin-bottom: 15px;
-        gap: 10px;
-    }
-    
-    .chatbot-message-avatar {
-        width: 32px;
-        height: 32px;
-        font-size: 0.9rem;
+        padding: 20px;
     }
     
     .chatbot-message-bubble {
-        padding: 10px 14px;
-        font-size: 0.85rem;
-        border-radius: 16px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
     }
     
-    /* INPUT COMPACTO */
     .chatbot-input-area {
-        padding: 15px;
+        padding: 18px;
     }
     
     .chatbot-active-input {
-        padding: 12px 16px;
-        font-size: 0.85rem;
-    }
-    
-    .chatbot-active-send-btn {
-        width: 40px;
-        height: 40px;
+        padding: 12px 18px;
         font-size: 0.9rem;
     }
     
     .chatbot-main-input {
-        padding: 14px 18px;
-        font-size: 0.9rem;
-    }
-    
-    .chatbot-send-button {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-    }
-    
-    /* Desabilitar animações em dispositivos móveis para melhor performance */
-    .robo, .notebook, .teclado, .caixas, .mesa {
-        animation: none;
-        will-change: auto;
-    }
-    
-    .particles-overlay {
-        display: none;
+        padding: 16px 20px;
+        font-size: 0.95rem;
     }
 }
